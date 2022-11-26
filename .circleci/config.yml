@@ -1,10 +1,5 @@
 version: 2.1
 
-workflows:
-  test-deploy:
-    jobs:
-      - test
-
 jobs:
   test:
     docker:
@@ -13,5 +8,9 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm install --save
 
+workflows:
+  test-deploy:
+    jobs:
+      - test
