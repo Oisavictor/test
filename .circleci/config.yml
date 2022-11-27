@@ -1,10 +1,5 @@
 version: 2.1
 
-workflows:
-  test-deploy:
-    jobs:
-      - test
-
 jobs:
   test:
     docker:
@@ -21,3 +16,7 @@ jobs:
           path: test-results
       - store_artifacts:
           path: test-results
+workflows:
+  test-deploy:
+    jobs:
+      - test
