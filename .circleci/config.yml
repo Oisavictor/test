@@ -11,7 +11,7 @@ jobs:
           command: npm install --save
       - run:
           name: Run Unit Tests
-          command: ./node_modules/mocha/bin/mocha test/ --reporter reportDir=test-results,reportFile=test-results
+          command: npm test --reporter reportDir=test-results,reportFile=test-results
       - store_test-results:
           path: test-results
       - store_artifacts:
