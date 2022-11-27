@@ -13,5 +13,11 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
-
+          command: npm install --save
+      - run:
+          name: Run Unit Tests
+          command: ./node_modules/mocha/bin/mocha test/ --reporter reportDir=test-results,reportFile=test-results
+      - store_test-results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
